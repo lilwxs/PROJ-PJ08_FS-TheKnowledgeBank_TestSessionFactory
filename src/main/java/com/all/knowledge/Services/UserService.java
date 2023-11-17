@@ -1,23 +1,18 @@
 package com.all.knowledge.Services;
 
-import com.all.knowledge.DAO.UserDAO;
 import com.all.knowledge.Entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class UserService {
-    @Autowired
-    private UserDAO userDAO;
+public interface UserService {
+    List<User> findAllUser();
 
-    public List<User> findAllUser() {
-        return userDAO.findAllUser();
-    }
+    User findUserById(Integer id);
 
-    public void createUser(User user) {
-        userDAO.createUser(user);
-    }
+    User saveUser(User user);
 
+    // createUser
+    void createUser(User user);
+
+    void deleteUserById(Integer id);
 }

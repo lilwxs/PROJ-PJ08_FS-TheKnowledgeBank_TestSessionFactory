@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class UserDAO implements UserRepo {
+public class UserDAOImpl implements UserRepo {
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -25,5 +25,12 @@ public class UserDAO implements UserRepo {
     public void createUser(User user) {
         Session session = sessionFactory.getCurrentSession();
         session.save(user);
+    }
+
+    @Override
+    public void deleteUserById(Integer id) {
+        Session session = sessionFactory.getCurrentSession();
+        User user = session.get(User.class, id);
+        session.delete(user);
     }
 }

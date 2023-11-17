@@ -29,7 +29,7 @@
                                 <div class="flex items-center gap-x-4 ring-1 ring-gray-200/80 rounded-lg">
                                     <span>${item}</span>
                                     <span>${item.username}</span>
-                                    <a href="/delete/${item.id}"/>Xoá</a>
+                                    <a href="/delete?id=${item.id}">Delete</a>
                                 </div>
                             </c:forEach>
                         </c:when>
@@ -37,14 +37,14 @@
                             <jsp:include page="../fragments/documentation/document.jsp"/>
                         </c:otherwise>
                     </c:choose>
-                    <form action="/new" method="post">
-                        <input type="text" name="firstName" placeholder="First Name">
-                        <input type="text" name="lastName" placeholder="Last Name">
+                    <form action="/save" method="post">
+                        <input type="text" name="firstName" placeholder="First name">
+                        <input type="text" name="lastName" placeholder="Last name">
                         <input type="text" name="username" placeholder="Username">
-                        <input type="password" name="password" placeholder="Password">
                         <input type="text" name="email" placeholder="Email">
+                        <input type="password" name="password" placeholder="Password">
                         <input type="text" name="role" placeholder="Role">
-                        <input type="submit" value="Create">
+                        <button type="submit">Submit</button>
                     </form>
                 </div>
             </main>
