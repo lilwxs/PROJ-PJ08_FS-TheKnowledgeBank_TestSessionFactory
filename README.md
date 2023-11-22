@@ -1,4 +1,5 @@
 # The Knowledge Bank | Website
+- Using SessionFactory
 
 ## About the project
 
